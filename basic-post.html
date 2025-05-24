@@ -136,37 +136,38 @@
                                   <p id="details" style="word-spacing: 98%;"><p>
                                   <h3 id="points"></h3>
                                   
+                                  <h2>Example 1: Basic Promise Consumption</h2>
                                   <!-- Post Coding (SyntaxHighlighter) Start -->
                                   <div class="margin-top-40 margin-bottom-40">  
                                    <pre class="brush: js">
-                                   /* Smooth Scroll */
+                                    
+                                   const promiseOne = new Promise(function(resolve, reject){
+                                    setTimeout(function(){
+                                         console.log('Async task is complete');
+                                         resolve()
+                                     }, 1000)
+                                   })
 
-                                    $('a.smoth-scroll').on("click", function (e) {
-                                      var anchor = $(this);
-                                      $('html, body').stop().animate({
-                                      scrollTop: $(anchor.attr('href')).offset().top - 50
-                                      }, 1000);
-                                      e.preventDefault();
-                                     });
-				 
-                                   /* Scroll To Top */
-		
-                                   $(window).scroll(function(){
-                                     if ($(this).scrollTop() >= 500) {
-                                     $('.scroll-to-top').fadeIn();
-                                     } else {
-                                     $('.scroll-to-top').fadeOut();
-                                     }
-                                     });
-	
-	                               $('.scroll-to-top').click(function(){
-                                   $('html, body').animate({scrollTop : 0},800);
-                                   return false;
-                                    });
-                                     $('.scroll-to-top').click(function(){
-                                   $('html, body').animate({scrollTop : 0},800);
-                                   return false;
-                                    });
+                                   promiseOne.then(function(){
+                                       console.log("Promise consumed");
+                                    })
+
+                                  </pre>
+                                 </div>
+
+                                 <h2>Example 2: Chained Promise with Immediate Declaration</h2>
+                                  <!-- Post Coding (SyntaxHighlighter) Start -->
+                                  <div class="margin-top-40 margin-bottom-40">  
+                                   <pre class="brush: js">
+                                  new Promise(function(resolve, reject){
+                                   setTimeout(function(){
+                                     console.log("Async task 2");
+                                       resolve()
+                                        }, 1000)
+                                  }).then(function(){
+                                           console.log("Async 2 resolved");
+                                    })
+
                                   </pre>
                                  </div>
                                  <!-- Post Coding (SyntaxHighlighter) End -->
